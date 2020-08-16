@@ -4,7 +4,7 @@ import '../styles/main.scss'
 
 const IndexPage = () => (
   <div>
-    <h1>Hi, I'm Jason Yeung<br/>I like chicken</h1>
+    <h1 className='mt-1'>Hi, I'm Jason Yeung<br/>I like chicken</h1>
   </div>
 )
 
