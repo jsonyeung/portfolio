@@ -1,5 +1,5 @@
 /* Font setup */
-const baseFontSize = 16
+const baseFontSize = 20
 
 // spacing to rem
 const space = (...steps) => {
@@ -14,7 +14,14 @@ module.exports = {
   purge: [],
   theme: {
     fontSize: {
-      base: baseFontSize
+      'base': baseFontSize
+    },
+    fontFamily: {
+      'head': 'public sans, sans-serif',
+      'sub': 'merriweather, serif',
+      'body': 'paul-grotesk, sans-serif',
+      'mono': 'lab-mono, monospace',
+      'geo': 'jost, public sans, sans-serif'
     },
     spacing: {
       'none': 0,

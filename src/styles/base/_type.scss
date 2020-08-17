@@ -1,3 +1,16 @@
-:root {
-  @apply text-base;
+@import 'public/fonts/fonts.scss';
+
+// Base Type Stylings
+:root { 
+  @apply text-base font-body;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-head;
+  letter-spacing: -0.01em;
+}
+
+p {
+  width: 500px;
 }
