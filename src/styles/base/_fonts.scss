@@ -1,0 +1,31 @@
+@mixin font-face($name, $weights) {
+  @each $weight, $file in $weights {
+    @font-face {
+      font-family: $name;
+      font-weight: $weight;
+      src: url('../../public/fonts/#{$file}.ttf') format('truetype'),
+        url('../../public/fonts/#{$file}.woff') format('woff'),
+        url('../../public/fonts/#{$file}.woff2') format('woff2');
+    }
+  }
+}
+
+/* Normal fonts */
+@include font-face('paul-grotesk', (
+  400: 'paulgrotesk-regular',
+  700: 'paulgrotesk-bold'
+));
+
+@include font-face('lab-mono', (
+  400: 'labmono-regular'
+));
+
+/* Variable fonts */
+@font-face {
+  font-family: 'bandeins-strange';
+  src: url('../../public/fonts/bandeins-strange-vf.ttf') format('truetype-variations');
+  font-weight: 300 900;
+}
+
+// note: Google fonts are loaded via Fontsource
+// https://github.com/fontsource/fontsource

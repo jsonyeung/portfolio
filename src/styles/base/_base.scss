@@ -1,5 +1,7 @@
 @tailwind base;
-@tailwind utilities;
 
 // Basic Elements
 *, *::before, *::after { box-sizing: border-box; }
+
+body { @apply bg-black; }
+hr { border: 1px solid rgba(#F2F2F2, 0.2); }

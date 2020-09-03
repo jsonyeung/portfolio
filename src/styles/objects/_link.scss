@@ -1,0 +1,43 @@
+.link {
+  display: inline;
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+  cursor: pointer;
+
+  // wrapping underline
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1.4px, 100% 1.4px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* variants */
+.link-hidden {
+  @extend .link;
+  background-image: none;
+  &:hover { background-image: linear-gradient(currentColor, currentColor); }
+}
+
+.link-secondary {
+  @extend .link;
+  background-image: none;
+
+  position: relative;
+  &::after {
+    content: '';
+    @apply absolute inset-0;
+    opacity: 0;
+    height: 100%;
+    background-color: currentColor;
+    mask: url('../assets/wave-link.svg') repeat-x left bottom;
+  }
+
+  &:hover::after { 
+    opacity: 1; 
+    animation: 1.5s wave linear infinite;
+
+    @keyframes wave {
+      to { mask-position: 25px bottom; }
+    }
+  }
+}

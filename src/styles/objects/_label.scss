@@ -1,0 +1,24 @@
+.label {
+  @apply font-mono;
+  @extend .text-xs;
+
+  display: inline-block;
+  line-height: 1;
+  text-transform: capitalize;
+
+  &::before { content: '['; }
+  &::after { content: ']'; }
+}
+
+/* variants */
+.label-padded {
+  @apply py-2 px-2 font-geo bg-acc-1 text-black;
+  @extend .label, .text-xs2;
+
+  font-weight: 690;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  text-transform: uppercase;
+
+  &::before, &::after { content: '';  }
+}

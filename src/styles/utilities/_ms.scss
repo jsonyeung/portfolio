@@ -1,0 +1,36 @@
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function ms($scale, $step) {
+  $res: 1;
+  @if ($step < 0) { @for $i from -1 through $step { $res: $res / $scale; } }
+  @else if ($step > 0) { @for $i from 1 through $step { $res: $res * $scale; } }
+  @return $res;
+}
+
+// default params
+$ms: (1.125, 1.333);
+$bounds: (300px, 1600px);
+$base: (16px, 20px);
+
+@mixin ms-lerp($prop, $step-max, $step-min) {
+  $upper: strip-units(nth($bounds, 2) / nth($base, 2)); 
+  $lower: strip-units(nth($bounds, 1) / nth($base, 1));
+  $scale-max: ms(nth($ms, 2), $step-max); 
+  $scale-min: ms(nth($ms, 1), $step-min);
+  $unit: 1rem;
+
+  #{$prop}: ($scale-max * $unit);
+
+  @media (max-width: nth($bounds, 2)) {
+    #{$prop}: calc((#{$scale-min * $unit}) + (
+      (#{$scale-max - $scale-min}) *
+      ((100vw - (#{$lower * $unit}))) / #{$upper - $lower})
+    );
+  }
+
+  @media (max-width: nth($bounds, 1)) {
+    #{$prop}: ($scale-min * $unit);
+  }
+}

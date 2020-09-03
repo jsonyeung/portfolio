@@ -13,12 +13,21 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `${__dirname}/src/assets`
+        }
+      }
+    },
 
     {
       resolve: `gatsby-plugin-sass`,
       options: {
         postCssPlugins: [
           require('tailwindcss')('./tailwind.config.js'),
+          require('postcss-responsive-type'),
           require('autoprefixer'),
           require("postcss-preset-env")
         ]

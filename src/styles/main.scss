@@ -1,4 +1,11 @@
+@import 'utilities/ms';
+
 @import 'base/base';
+@import 'base/fonts';
 @import 'base/type';
 
-@import 'utilities/utils';
+@import 'objects/label';
+@import 'objects/link';
+@import 'objects/container';
+
+@tailwind utilities;

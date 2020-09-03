@@ -1,16 +1,43 @@
-@import 'public/fonts/fonts.scss';
+$ms: (1.119, 1.119);
+$bounds: (700px, 1600px);
+$base: (20px, 20px);
 
-// Base Type Stylings
+/* Basic Typography */
 :root { 
-  @apply text-base font-body;
+  @apply text-gray font-body;
   text-rendering: optimizeLegibility;
+  font-size: responsive nth($base, 1) nth($base, 2);
+  font-range: nth($bounds, 1) nth($bounds, 2);
+  
+  line-height: 1.4;
+  @media (max-width: 600px) { line-height: 1.333; }
+
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-head;
-  letter-spacing: -0.01em;
+  @apply text-white tracking-tighter;
+  font-family: 'public sans';
+  font-feature-settings: 'salt';
+  line-height: 1.1;
 }
 
-p {
-  width: 500px;
+/* font sizes */
+.text-xl4, h1 { @include ms-lerp(font-size, 10, 5); }
+.text-xl3, h2 { @include ms-lerp(font-size, 8, 4); }
+.text-xl2, h3 { @include ms-lerp(font-size, 7, 3); }
+.text-xl, h4 { @include ms-lerp(font-size, 3, 2); }
+.text-lg { @include ms-lerp(font-size, 2, 1); }
+.text-md { @include ms-lerp(font-size, 1, 0); }
+.text-sm { @include ms-lerp(font-size, -1, -2); }
+.text-xs { @include ms-lerp(font-size, -2, -2); }
+.text-xs2 { @include ms-lerp(font-size, -3, -3); }
+
+/* font variations */
+.font-wide { font-variation-settings: 'wdth' 200; }
+
+// font-boosting on mobile browsers annoying...
+// https://stackoverflow.com/q/13430897
+html * { 
+  max-height: 99999px;
+  text-size-adjust: none;
 }
